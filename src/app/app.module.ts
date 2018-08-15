@@ -10,6 +10,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { EvaluationComponent } from '../components/evaluation/evaluation';
+import { MeasuresComponent } from '../components/measures/measures';
 
 @NgModule({
   declarations: [
@@ -17,10 +20,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    //ChartsModule,
+    EvaluationComponent,
+    MeasuresComponent
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

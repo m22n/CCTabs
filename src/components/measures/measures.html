@@ -1,0 +1,77 @@
+<ion-list>
+  <ion-item>
+    <ion-label>Cybersecurity Standard</ion-label>
+    <ion-select [(ngModel)]="standard">
+      <ion-option value="essential8">Essential Eight</ion-option>
+      <ion-option value="melani">MELANI</ion-option>
+      <ion-option value="cybercomp">CyberComp Basic</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<div padding>
+  <ion-segment [(ngModel)]="mode_of_attack">
+    <ion-segment-button value="alle">
+      Alle
+    </ion-segment-button>
+    <ion-segment-button value="schadsoftware">
+      Schadsoftware
+    </ion-segment-button>
+    <ion-segment-button value="systemeinbruch">
+      Systemeinbruch
+    </ion-segment-button>
+    <ion-segment-button value="social_engineering">
+      Social Engineering
+    </ion-segment-button>
+    <ion-segment-button value="missbrauch">
+      Missbrauch von Berechtigungen und Systemen
+    </ion-segment-button>
+    <ion-segment-button value="diebstahl">
+      Diebstahl (Verlust) von mobilen Geräten oder Datenträgern
+    </ion-segment-button>
+  </ion-segment>
+</div>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <div [ngSwitch]="mode_of_attack">
+            <ion-list *ngSwitchCase="'schadsoftware'">
+              <ion-item>
+                <ion-icon name="checkmark-circle" color="secondary"></ion-icon>
+                <button ion-button color="secondary">
+                  {{measure.name}}
+                </button>
+                <button ion-button icon-only>
+                  <ion-icon name="play"></ion-icon>
+                </button>
+                <button ion-button icon-only>
+                  <ion-icon name="eye"></ion-icon>
+                </button>
+              </ion-item>
+            </ion-list>
+            <ion-list *ngSwitchCase="'alle'">
+              <ion-item-group>
+                <ion-item-divider color="light">Organisatorische Massnahmen</ion-item-divider>
+                <ion-item>
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  Überprüfung der Risiken im Bereich Informationssicherheit und Vorlage an die Geschäftsleitung
+                </ion-item>
+              </ion-item-group>
+            </ion-list>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          Die Mitarbeitenden müssen wissen, an wen sie sich wenden sollen, wenn sie Fragen zur IT-Sicherheit haben (z.B. bei Erhalt
+          eines verdächtigen E-Mails) oder wer bei einem IT-Sicherheitsvorfall zu informieren ist. Erarbeiten Sie frühzeitig
+          einen Plan zur Bewältigung von Sicherheitsvorfällen (Incident Response Plan). Üben Sie dessen Umsetzung regelmässig
+          und passen Sie den Plan aufgrund der Erkenntnisse aus diesen Übungen an.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

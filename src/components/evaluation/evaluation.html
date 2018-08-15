@@ -1,0 +1,98 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header>
+          Self-Assessment Situation Awareness
+        </ion-card-header>
+        <ion-card-content>
+          <!-- <div style="display: block"> -->
+          <canvas baseChart [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType" (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+          <!--  </div> -->
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-list>
+            <ion-item-group>
+              <ion-item-divider color="light">29% Technological Dependency
+                <ion-icon name="arrow-dropdown"></ion-icon>
+              </ion-item-divider>
+            </ion-item-group>
+            <ion-item-group>
+              <ion-item-divider color="light">48% Cybersecurity Situation Awareness</ion-item-divider>
+              <button ion-item>
+                <ion-label>
+                  75% Schadsoftware
+                  <ion-icon name="trending-up"></ion-icon>
+                </ion-label>
+              </button>
+              <button ion-item>
+                <ion-label>
+                  58% Systemeinbruch
+                  <ion-icon name="trending-up"></ion-icon>
+                </ion-label>
+              </button>
+              <button ion-item>
+                <ion-label>
+                  33% Social Engineering
+                  <ion-icon name="trending-up"></ion-icon>
+                </ion-label>
+              </button>
+              <button ion-item>
+                <ion-label>
+                  33% Missbrauch von Berechtigungen und Systemen
+                  <ion-icon name="trending-up"></ion-icon>
+                </ion-label>
+              </button>
+              <button ion-item>
+                <ion-label>
+                  42% Diebstahl (Verlust) von mobilen Geräten oder Datenträgern
+                  <ion-icon name="trending-up"></ion-icon>
+                </ion-label>
+              </button>
+            </ion-item-group>
+            <ion-item-group>
+                <ion-item-divider color="light">68% Non-Technical Skill Assessment</ion-item-divider>
+                <button ion-item>
+                  <ion-label>
+                    100% Schadsoftware
+                    <ion-icon name="trending-up"></ion-icon>
+                  </ion-label>
+                </button>
+                <button ion-item>
+                  <ion-label>
+                    100% Systemeinbruch
+                    <ion-icon name="trending-up"></ion-icon>
+                  </ion-label>
+                </button>
+                <button ion-item>
+                  <ion-label>
+                    0% Social Engineering
+                    <ion-icon name="trending-up"></ion-icon>
+                  </ion-label>
+                </button>
+                <button ion-item>
+                  <ion-label>
+                    50% Missbrauch von Berechtigungen und Systemen
+                    <ion-icon name="trending-up"></ion-icon>
+                  </ion-label>
+                </button>
+                <button ion-item>
+                  <ion-label>
+                    88% Diebstahl (Verlust) von mobilen Geräten oder Datenträgern
+                    <ion-icon name="trending-up"></ion-icon>
+                  </ion-label>
+                </button>
+              </ion-item-group>
+            </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
