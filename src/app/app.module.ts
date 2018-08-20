@@ -14,6 +14,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { EvaluationComponent } from '../components/evaluation/evaluation';
 import { MeasuresComponent } from '../components/measures/measures';
 import { MeasureProvider } from '../providers/measure/measure';
+import { MeasurePage } from '../pages/measure/measure';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MeasureProvider } from '../providers/measure/measure';
     TabsPage,
     //ChartsModule,
     EvaluationComponent,
-    MeasuresComponent
+    MeasuresComponent,
+    MeasurePage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { MeasureProvider } from '../providers/measure/measure';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    MeasurePage
   ],
   providers: [
     StatusBar,

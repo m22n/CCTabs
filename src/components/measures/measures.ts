@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Measure } from './measure';
 import { MeasureProvider } from '../../providers/measure/measure';
+import { PopoverController } from 'ionic-angular';
+import { MeasurePage } from '../../pages/measure/measure';
 
 
 @Component({
@@ -19,12 +21,19 @@ export class MeasuresComponent implements OnInit{
 
    onSelect(measure: Measure): void {
      this.selectedMeasure = measure;
+     this.presentPopover();
+   }
+
+   presentPopover(){
+    const popover = this.popoverCtrl.create(MeasurePage);
+    popover.present();
    }
 
    ngOnInit() {
     this.getMeasures();
   }
 
-  constructor( private measureProvider: MeasureProvider) {}
+  constructor( private measureProvider: MeasureProvider,
+    public popoverCtrl: PopoverController) {}
 }
 
