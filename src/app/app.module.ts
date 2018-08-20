@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { EvaluationComponent } from '../components/evaluation/evaluation';
 import { MeasuresComponent } from '../components/measures/measures';
+import { MeasureProvider } from '../providers/measure/measure';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MeasuresComponent } from '../components/measures/measures';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MeasureProvider
   ]
 })
 export class AppModule {}

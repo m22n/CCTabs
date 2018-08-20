@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Measure } from './measure';
-import { MEASURES } from './mock-measures';
+import { MeasureProvider } from '../../providers/measure/measure';
 
 
 @Component({
@@ -8,15 +8,23 @@ import { MEASURES } from './mock-measures';
   templateUrl: 'measures.html'
 })
 
-export class MeasuresComponent {
+export class MeasuresComponent implements OnInit{
 
-   measures = MEASURES;
+   measures: Measure[];
    selectedMeasure: Measure;
+
+   getMeasures(): void{
+     this.measures = this.measureProvider.getMeasures();
+   }
 
    onSelect(measure: Measure): void {
      this.selectedMeasure = measure;
    }
 
-  constructor() {}
+   ngOnInit() {
+    this.getMeasures();
+  }
+
+  constructor( private measureProvider: MeasureProvider) {}
 }
 
