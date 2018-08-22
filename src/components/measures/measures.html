@@ -10,22 +10,22 @@
 </ion-list>
 <div padding>
   <ion-segment [(ngModel)]="mode_of_attack">
-    <ion-segment-button value="alle">
+    <ion-segment-button value="all">
       Alle
     </ion-segment-button>
-    <ion-segment-button value="schadsoftware">
+    <ion-segment-button value="malware">
       Schadsoftware
     </ion-segment-button>
-    <ion-segment-button value="systemeinbruch">
+    <ion-segment-button value="compromise">
       Systemeinbruch
     </ion-segment-button>
     <ion-segment-button value="social_engineering">
       Social Engineering
     </ion-segment-button>
-    <ion-segment-button value="missbrauch">
+    <ion-segment-button value="misuse">
       Missbrauch von Berechtigungen und Systemen
     </ion-segment-button>
-    <ion-segment-button value="diebstahl">
+    <ion-segment-button value="theft">
       Diebstahl (Verlust) von mobilen Geräten oder Datenträgern
     </ion-segment-button>
   </ion-segment>
@@ -36,23 +36,62 @@
       <ion-card>
         <ion-card-content>
          <div [ngSwitch]="mode_of_attack"> 
-            <ion-list *ngSwitchCase="'alle'">
+            <ion-list *ngSwitchCase="'all'">
               <ion-item-group>
-                <ion-item *ngFor="let measure of measures"
-                  [class.selected]="measure === selectedMeasure"
-                  (click)="onSelect(measure)">
-                 <!-- <button ion-button icon-only> -->
-                    <ion-icon name="checkmark-circle-outline"></ion-icon>
-                  <!-- </button> -->
-                  <!-- <button ion-button color="light"> -->  
-                    {{measure.name}}
-                  <!-- </button> -->
-                  </ion-item>
+                <ion-item *ngFor="let measure of measures" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  {{measure.name}}
+                </ion-item>
               </ion-item-group>
             </ion-list>
-            <ion-list *ngSwitchCase="'schadsoftware'">
-            
-            </ion-list>  
+            <ion-list *ngSwitchCase="'malware'">
+              <ion-item-group>
+                <ion-item *ngFor="let measure of measures | measureFilter: isMalware" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  {{measure.name}}
+                </ion-item>
+              </ion-item-group>
+            </ion-list>
+            <ion-list *ngSwitchCase="'compromise'">
+              <ion-item-group>
+                <div *ngFor="let measure of measures" >
+                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)" *ngIf="measure.isCompromise == true">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    {{measure.name}}
+                  </ion-item>
+                </div>
+              </ion-item-group>
+            </ion-list>
+            <ion-list *ngSwitchCase="'social_engineering'">
+              <ion-item-group>
+                <div *ngFor="let measure of measures">
+                  <ion-item *ngIf="measure.isSocialEngineering == true" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    {{measure.name}}
+                  </ion-item>
+                </div>
+              </ion-item-group>
+            </ion-list>
+            <ion-list *ngSwitchCase="'misuse'">
+              <ion-item-group>
+                <div *ngFor="let measure of measures">
+                  <ion-item *ngIf="measure.isMisuse == true" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    {{measure.name}}
+                  </ion-item>
+                </div>
+              </ion-item-group>
+            </ion-list>
+            <ion-list *ngSwitchCase="'theft'">
+              <ion-item-group>
+                <div *ngFor="let measure of measures">
+                  <ion-item *ngIf="measure.isTheft == true" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    {{measure.name}}
+                  </ion-item>
+                </div>
+              </ion-item-group>
+            </ion-list>            
           </div>
           </ion-card-content>
       </ion-card>

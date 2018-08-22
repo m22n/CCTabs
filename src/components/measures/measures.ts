@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { Measure } from './measure';
 import { MeasureProvider } from '../../providers/measure/measure';
 
@@ -20,7 +20,7 @@ export class MeasuresComponent implements OnInit{
    onSelect(measure: Measure): void {
      this.selectedMeasure = measure;
    }
-
+ 
    ngOnInit() {
     this.getMeasures();
   }
