@@ -38,18 +38,22 @@
          <div [ngSwitch]="mode_of_attack"> 
             <ion-list *ngSwitchCase="'all'">
               <ion-item-group>
-                <ion-item *ngFor="let measure of measures" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
-                  <ion-icon name="checkmark-circle-outline"></ion-icon>
-                  {{measure.name}}
-                </ion-item>
+                <div *ngFor="let measure of measures">
+                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    {{measure.name}}
+                  </ion-item>
+                </div>
               </ion-item-group>
             </ion-list>
             <ion-list *ngSwitchCase="'malware'">
               <ion-item-group>
-                <ion-item *ngFor="let measure of measures | measureFilter: isMalware" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
-                  <ion-icon name="checkmark-circle-outline"></ion-icon>
-                  {{measure.name}}
-                </ion-item>
+                <div *ngFor="let measure of measures">
+                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)" *ngIf="measure.isMalware == true">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                    {{measure.name}}
+                  </ion-item>
+                </div>
               </ion-item-group>
             </ion-list>
             <ion-list *ngSwitchCase="'compromise'">
