@@ -49,7 +49,7 @@
             <ion-list *ngSwitchCase="'malware'">
               <ion-item-group>
                 <div *ngFor="let measure of measures">
-                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)" *ngIf="measure.isMalware == true">
+                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)" *ngIf="measure.modeOfAttack.indexOf('Malware') !== -1">
                     <ion-icon name="checkmark-circle-outline"></ion-icon>
                     {{measure.name}}
                   </ion-item>
@@ -59,7 +59,7 @@
             <ion-list *ngSwitchCase="'compromise'">
               <ion-item-group>
                 <div *ngFor="let measure of measures" >
-                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)" *ngIf="measure.isCompromise == true">
+                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)" *ngIf="measure.modeOfAttack.indexOf('Compromise') !== -1">
                     <ion-icon name="checkmark-circle-outline"></ion-icon>
                     {{measure.name}}
                   </ion-item>
@@ -69,7 +69,7 @@
             <ion-list *ngSwitchCase="'social_engineering'">
               <ion-item-group>
                 <div *ngFor="let measure of measures">
-                  <ion-item *ngIf="measure.isSocialEngineering == true" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
+                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)" *ngIf="measure.modeOfAttack.indexOf('Social Engineering') !== -1" >
                     <ion-icon name="checkmark-circle-outline"></ion-icon>
                     {{measure.name}}
                   </ion-item>
@@ -79,7 +79,7 @@
             <ion-list *ngSwitchCase="'misuse'">
               <ion-item-group>
                 <div *ngFor="let measure of measures">
-                  <ion-item *ngIf="measure.isMisuse == true" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
+                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)" *ngIf="measure.modeOfAttack.indexOf('Misuse') !== -1" >
                     <ion-icon name="checkmark-circle-outline"></ion-icon>
                     {{measure.name}}
                   </ion-item>
@@ -89,7 +89,7 @@
             <ion-list *ngSwitchCase="'theft'">
               <ion-item-group>
                 <div *ngFor="let measure of measures">
-                  <ion-item *ngIf="measure.isTheft == true" [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)">
+                  <ion-item [class.selected]="measure === selectedMeasure" (click)="onSelect(measure)" *ngIf="measure.modeOfAttack.indexOf('Theft') !== -1" >
                     <ion-icon name="checkmark-circle-outline"></ion-icon>
                     {{measure.name}}
                   </ion-item>
